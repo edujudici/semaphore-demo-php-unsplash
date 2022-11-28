@@ -29,3 +29,6 @@ after_pipeline:
     jobs:
       - name: Build
         commands: []
+promotions:
+  - name: Deploy to Heroku
+    pipeline_file: pipeline_3.yml

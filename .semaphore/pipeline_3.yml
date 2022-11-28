@@ -1,5 +1,5 @@
 version: v1.0
-name: Pipeline 3
+name: Deploy to Heroku
 agent:
   machine:
     type: e1-standard-2
@@ -28,8 +28,10 @@ blocks:
       env_vars:
         - name: HEROKU_APP
           value: cicd-semaphore-demo
-  - name: Tag image as latest
+  - name: Tag latest image
     task:
+      secrets:
+        - name: dockerhub
       jobs:
         - name: Docker tag
           commands:
